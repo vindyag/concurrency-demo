@@ -1,10 +1,9 @@
-package service.forkjoin.util;
+package service;
 
 import java.util.concurrent.ForkJoinPool;
 
-public class PoolUtil {
+public class Main {
 
     public static ForkJoinPool forkJoinPool = ForkJoinPool.commonPool();
     //new ForkJoinPool(2);
-
 }
