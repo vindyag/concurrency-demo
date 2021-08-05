@@ -1,4 +1,4 @@
-package service.forkjoin;
+package demo.forkjoin;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveTask;
 
-//with RecursiveTask we hv a result. not with
+//with RecursiveTask we hv a result. not with recursive action
 public class CustomRecursiveTask extends RecursiveTask<Integer> {
 
     private int[] arr;
 
-    private static final int THRESHOLD = 20;
+    private static final int THRESHOLD = 4;
 
     public CustomRecursiveTask(int[] arr) {
         this.arr = arr;
@@ -41,6 +41,7 @@ public class CustomRecursiveTask extends RecursiveTask<Integer> {
     }
 
     private Integer processing(int[] arr) {
-        return Arrays.stream(arr).filter(a -> a > 10 && a < 27).map(a -> a * 10).sum();
+        //return Arrays.stream(arr).filter(a -> a > 10 && a < 27).map(a -> a * 10).sum();
+        return Arrays.stream(arr).map(a -> a * 2).sum();
     }
 }

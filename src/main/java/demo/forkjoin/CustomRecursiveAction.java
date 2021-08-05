@@ -1,18 +1,16 @@
-package service.forkjoin;
+package demo.forkjoin;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveAction;
-import java.util.logging.Logger;
+
 //avg calculator/odd even
 public class CustomRecursiveAction extends RecursiveAction {
 
     private String workLoad = "";
     private static final int THRESHOLD = 4;
-
-    private static Logger logger = Logger.getAnonymousLogger();
 
     public CustomRecursiveAction(String workLoad) {
         this.workLoad = workLoad;
@@ -43,7 +41,7 @@ public class CustomRecursiveAction extends RecursiveAction {
 
     private void processing(String work) {
         String result = work.toUpperCase();
-        logger.info("This result - (" + result + ") - was processed by " + Thread.currentThread()
+        System.out.println("This result - (" + result + ") - was processed by " + Thread.currentThread()
             .getName());
     }
 }
