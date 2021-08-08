@@ -1,6 +1,6 @@
 package demo.test;
 
-public class Example {
+public class Calculator {
     int cell1;
     int cell2;
     int cell3;

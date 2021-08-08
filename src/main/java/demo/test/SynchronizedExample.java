@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 public class SynchronizedExample {
 
-    private static boolean  stopRequested;
+    private static boolean stopRequested;
 
     public static void main(String[] args) throws InterruptedException {
         Thread backgroundThread = new Thread(() -> {

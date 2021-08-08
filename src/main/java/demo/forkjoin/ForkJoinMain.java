@@ -2,7 +2,7 @@ package demo.forkjoin;
 
 import java.util.concurrent.ForkJoinPool;
 
-public class Main {
+public class ForkJoinMain {
 
     public static ForkJoinPool forkJoinPool = ForkJoinPool.commonPool();
 
