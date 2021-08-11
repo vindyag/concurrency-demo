@@ -1,4 +1,4 @@
-package demo.test;
+package demo.synchronization;
 
 public class Calculator {
     int cell1;

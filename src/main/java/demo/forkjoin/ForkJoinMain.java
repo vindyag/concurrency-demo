@@ -1,10 +1,14 @@
 package demo.forkjoin;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.ForkJoinPool;
 
 public class ForkJoinMain {
 
     public static ForkJoinPool forkJoinPool = ForkJoinPool.commonPool();
+    public static ExecutorService executor = Executors.newWorkStealingPool();
 
     public static void main(String[] args) {
         //CustomRecursiveAction customRecursiveAction = new CustomRecursiveAction("hello world");
