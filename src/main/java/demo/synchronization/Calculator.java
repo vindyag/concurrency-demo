@@ -2,6 +2,9 @@ package demo.synchronization;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * This won't work without synchronized in setAndGetSum
+ */
 public class Calculator {
     int cell1;
     int cell2;

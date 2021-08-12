@@ -2,6 +2,12 @@ package demo.synchronization;
 
 import java.util.concurrent.TimeUnit;
 
+/*
+This won't work without synchronized,
+as there is no guarantee as to when, if ever,
+the background thread will see the change in the value of
+stopRequested made by the main thread.
+ */
 public class SynchronizedExample {
 
     private static boolean stopRequested;
