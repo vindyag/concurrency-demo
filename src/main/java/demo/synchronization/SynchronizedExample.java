@@ -9,8 +9,10 @@ public class SynchronizedExample {
     public static void main(String[] args) throws InterruptedException {
         Thread backgroundThread = new Thread(() -> {
             int i = 0;
-            while (!isStopRequested())
+            while (!isStopRequested()) {
                 i++;
+                System.out.println(i);
+            }
         });
         backgroundThread.start();
         TimeUnit.SECONDS.sleep(1);
@@ -20,8 +22,7 @@ public class SynchronizedExample {
 
     }
 
-    private static synchronized boolean isStopRequested()
-    {
+    private static synchronized boolean isStopRequested() {
         return stopRequested;
     }
 }
