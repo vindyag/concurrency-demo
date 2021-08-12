@@ -5,7 +5,7 @@ public class Calculator {
     int cell2;
     int cell3;
 
-    synchronized int setAndGetSum(int val1, int val2, int val3) throws InterruptedException {
+    int setAndGetSum(int val1, int val2, int val3) throws InterruptedException {
         System.out.println("Starting " + Thread.currentThread().getName());
         cell1 = val1;
         System.out.println(Thread.currentThread().getName() + " setting cell1 " + cell1);
