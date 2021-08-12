@@ -11,13 +11,13 @@ public class SynchronizedExample {
         Thread backgroundThread = new Thread(
             () -> {
                 int i = 0;
-                while (!isStopRequested()) {
+                while (!isStopRequested())
                     i++;
-                    System.out.println(i);
-                }
             });
         backgroundThread.start();
-        TimeUnit.SECONDS.sleep(1);
+
+        TimeUnit.MILLISECONDS.sleep(1000);
+
         System.out.println("starting to request to stop the Thread");
         stopRequested = true;
         System.out.println("request accepted to stop the Thread");
