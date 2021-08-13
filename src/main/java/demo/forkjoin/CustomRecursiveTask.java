@@ -7,7 +7,9 @@ import java.util.List;
 import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveTask;
 
-//with RecursiveTask we hv a result. not with recursive action
+/**
+ * Cannot return a value using RecursiveTask
+ */
 public class CustomRecursiveTask extends RecursiveTask<Integer> {
 
     private int[] arr;
@@ -41,7 +43,6 @@ public class CustomRecursiveTask extends RecursiveTask<Integer> {
     }
 
     private Integer processing(int[] arr) {
-        //return Arrays.stream(arr).filter(a -> a > 10 && a < 27).map(a -> a * 10).sum();
         return Arrays.stream(arr).map(a -> a * 2).sum();
     }
 }

@@ -1,47 +1,48 @@
 package demo.forkjoin;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveAction;
 
-//avg calculator/odd even
+/**
+ * Cannot return a value using RecursiveAction
+ */
 public class CustomRecursiveAction extends RecursiveAction {
 
-    private String workLoad = "";
+    private int[] arr;
+
     private static final int THRESHOLD = 4;
 
-    public CustomRecursiveAction(String workLoad) {
-        this.workLoad = workLoad;
+    public CustomRecursiveAction(int[] arr) {
+        this.arr = arr;
     }
 
     @Override
     protected void compute() {
 
-        if (workLoad.length() > THRESHOLD) {
+        if (arr.length > THRESHOLD) {
             ForkJoinTask.invokeAll(createSubtasks());
         } else {
-            processing(workLoad);
+            processing(arr);
         }
     }
 
     private Collection<CustomRecursiveAction> createSubtasks() {
 
-        List<CustomRecursiveAction> subtasks = new ArrayList<>();
+        List<CustomRecursiveAction> dividedTasks = new ArrayList<>();
 
-        String partOne = workLoad.substring(0, workLoad.length() / 2);
-        String partTwo = workLoad.substring(workLoad.length() / 2, workLoad.length());
+        dividedTasks.add(new CustomRecursiveAction(Arrays.copyOfRange(arr, 0, arr.length / 2)));
+        dividedTasks.add(new CustomRecursiveAction(Arrays.copyOfRange(arr, arr.length / 2, arr.length)));
 
-        subtasks.add(new CustomRecursiveAction(partOne));
-        subtasks.add(new CustomRecursiveAction(partTwo));
-
-        return subtasks;
+        return dividedTasks;
     }
 
-    private void processing(String work) {
-        String result = work.toUpperCase();
-        System.out.println("This result - (" + result + ") - was processed by " + Thread.currentThread()
+    private void processing(int[] arr) {
+        int sum = Arrays.stream(arr).map(a -> a * 2).sum();
+        System.out.println("This result - (" + sum + ") - was processed by " + Thread.currentThread()
             .getName());
     }
 }

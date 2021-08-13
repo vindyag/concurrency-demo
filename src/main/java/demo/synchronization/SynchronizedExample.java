@@ -3,10 +3,10 @@ package demo.synchronization;
 import java.util.concurrent.TimeUnit;
 
 /*
-This won't work without synchronized,
-as there is no guarantee as to when, if ever,
-the background thread will see the change in the value of
-stopRequested made by the main thread.
+This won't work without synchronized,as there is no guarantee as to when, if ever,
+the background thread will see the change in the value of stopRequested made by the main thread.
+Each thread entering a synchronized method or block sees the effects of all previous
+modifications that were guarded by the same lock.
  */
 public class SynchronizedExample {
 
@@ -30,7 +30,7 @@ public class SynchronizedExample {
 
     }
 
-    private static synchronized boolean isStopRequested() {
+    private synchronized static boolean isStopRequested() {
         return stopRequested;
     }
 }

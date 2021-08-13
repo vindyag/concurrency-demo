@@ -3,10 +3,11 @@ package demo.threads;
 public class ThreadMain {
 
     public static void main(String[] args) {
-        Thread t1 = new Thread( new SampleUsingRunnableInterface());
+        SampleUsingThreadClass t1 = new SampleUsingThreadClass();
         t1.start();
 
-        SampleUsingThreadClass t2 = new SampleUsingThreadClass();
-        t2.start();
+        SampleUsingRunnableInterface t2 = new SampleUsingRunnableInterface();
+        Thread thread = new Thread(t2);
+        thread.start();
     }
 }
