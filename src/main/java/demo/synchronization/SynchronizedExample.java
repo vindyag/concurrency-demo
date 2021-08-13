@@ -7,6 +7,7 @@ This won't work without synchronized,as there is no guarantee as to when, if eve
 the background thread will see the change in the value of stopRequested made by the main thread.
 Each thread entering a synchronized method or block sees the effects of all previous
 modifications that were guarded by the same lock.
+Alternative solution is to use make stopRequested variable volatile
  */
 public class SynchronizedExample {
 
